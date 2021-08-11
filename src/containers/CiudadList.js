@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import List from '../components/List';
 import axios from 'axios';
+import {AppBar, Typography, Toolbar} from '@material-ui/core';
+import {withStyles} from '@material-ui/core/styles';
+import { blueGrey } from '@material-ui/core/colors';
 
 class CiudadListContainer extends Component{
 
@@ -22,12 +25,23 @@ class CiudadListContainer extends Component{
     })
    }
     render() {
-        
+        const {classes} = this.props;
         const {ciudadData} = this.state;
         return(
-            <List ciudata={ciudadData} />
+            <>
+            <AppBar className={classes.NavColor} position="static">
+                <Toolbar variant="dense">
+                    <Typography variant="h6" component="p">LISTA DE CIUDADES DISPONIBLES</Typography>
+                </Toolbar>
+            </AppBar>
+            <List ciudadData={ciudadData} />
+            </>
         );
     }
 }
 
-export default CiudadListContainer;
+export default withStyles({
+    NavColor:{
+        backgroundColor: '#21C4FD'
+    }
+}) (CiudadListContainer);

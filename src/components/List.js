@@ -1,14 +1,17 @@
 import React, {Fragment} from 'react';
 
 
-function List ({ciudata}) {
+function List ({ciudadData}) {
 
     return(
         <Fragment>
-        <h1>LISTA DE CIUDADES DISPONIBLES</h1>
         <ul>
-            {ciudata.map((ciudad, index) => {
-                return <li key={index}>{ciudad}</li> 
+            {ciudadData.map((ciudad, index) => {
+                return (
+                <li key={index}>
+                    {ciudad}
+                </li>
+                ); 
             })}
         </ul>
         </Fragment>
